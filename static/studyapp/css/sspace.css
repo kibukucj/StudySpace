@@ -1,0 +1,226 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: white;
+}
+
+.goal-container {
+    background: transparent;
+    margin-left: 40px;
+    border-radius: 10px;
+    text-align: center;
+    width: 300px;
+    border: none;
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+.input-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 20px;
+}
+
+input[type="text"] {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+button {
+    padding: 10px 20px;
+    margin-bottom: 20px;
+    border: none;
+    background-color: #f06161;
+    color: rgb(254, 253, 253);
+    border-radius: 5px;
+    cursor: pointer;
+    display: inline-block;
+    transition: background 0.3s ease;
+}
+
+button:hover {
+    background-color: #d94848;
+}
+
+.goalsList {
+    list-style: none;
+    padding: 0;
+    height: 100px;
+    overflow-y: auto;
+}
+
+li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.25rem 1rem;
+    border-radius: 0.5rem; 
+    border: none;
+    border-radius: 5px;
+    background: none;
+}
+
+li.completed {
+    background: #edd9d4;
+    text-decoration: line-through;
+    color: #525050;
+}
+
+input[type="checkbox"] {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+input[type="checkbox"]:checked {
+    background-color: #f06161; /* Orangish-pinkish color */
+    border-color: #f06161;
+}
+
+input[type="checkbox"]:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px #b43c2f;
+}
+
+
+main {
+    display: inline-flex;
+    align-items: center;
+
+}
+
+/* Timer*/
+.timer-container {
+    text-align: center;
+}
+
+.timer-mode {
+    margin-bottom: 20px;
+}
+
+.timer-mode button {
+    background: whitesmoke;
+    border: none;
+    color: rgb(9, 9, 9);
+    font-size: 1.2rem;
+    margin: 0 10px;
+    cursor: pointer;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+.timer-mode button:hover, .timer-mode button.active {
+    background: #f06161;
+}
+
+.timer {
+    font-size: 5rem;
+    margin-bottom: 20px;
+}
+
+.controls button {
+    background: whitesmoke;
+    border: none;
+    color: #070508;
+    font-size: 1.2rem;
+    margin: 0 10px;
+    cursor: pointer;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+.controls button:hover {
+    background: #f06161;
+    color: rgb(8, 8, 8);
+}
+
+.cards {
+	display: flex;
+	grid-template-columns: 1fr 1fr;
+	gap: 1.6rem;
+}
+
+.cards .card {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+}
+
+.cards .card input {
+	position: absolute;
+	bottom: 0.5rem;
+	left: 0.5rem;
+	width: 5rem;
+}
+
+.cards .card button {
+	width: 5rem;
+	height: 6rem;
+	border-radius: 0.9rem;
+	cursor: pointer;
+	background: var(--bg-secondary-color);
+	box-shadow: 7px 7px 14px var(--cs-primary), -7px -7px 14px var(--cs-secondary);
+}
+
+.cards .card.active button {
+	background: var(--button-active-color);
+	box-shadow: inset 10px 10px 20px var(--cs-secondary-active),
+		inset -10px -10px 20px var(--cs-primary-active);
+}
+
+.cards .card path {
+	fill: var(--svg-path-color);
+}
+
+.cards .card.active path {
+	fill: var(--svg-path-active-color);
+}
+
+.cards .card.active input[type='range'] {
+	background: var(--svg-path-active-color);
+	background-image: var(--svg-path-active-color);
+}
+
+.cards .card.active input[type='range']::-webkit-slider-thumb {
+	background: var(--svg-path-active-color);
+}
+
+input[type='range'] {
+	-webkit-appearance: none;
+	width: 9rem;
+	height: 6px;
+	background: var(--svg-path-color);
+	border-radius: 9999px;
+	background-image: var(--svg-path-color);
+	position: relative;
+	top: 12rem;
+}
+
+input[type='range']::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	height: 16px;
+	width: 16px;
+	border-radius: 50%;
+	background: var(--svg-path-color);
+}
+
+input[type='range']::-webkit-slider-runnable-track {
+	-webkit-appearance: none;
+	box-shadow: none;
+	border: none;
+	background: transparent;
+}

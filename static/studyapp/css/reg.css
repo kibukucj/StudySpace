@@ -1,0 +1,115 @@
+@media screen {
+    
+}
+*,
+*:before,
+*:after{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    position: relative;
+    height: 100%;
+    min-height: 600px;
+    background-color: rgb(248, 248, 252);
+    backdrop-filter: blur(30px);
+    background-position: center;
+    margin-top: 5px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+          -ms-flex-direction: column;
+              flex-direction: column;
+}
+.background{
+    width: 450px;
+    height: 390px;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    left: 50%;
+    top: 50%;
+
+}
+.background .shape{
+    height: 200px;
+    width: 200px;
+    position: absolute;
+    border-radius: 50%;
+}
+.shape:first-child{
+    background: linear-gradient(
+        #0c0c0c,
+        #585a5b
+    );
+    left: -80px;
+    top: -80px;
+}
+.shape:last-child{
+    background: linear-gradient(
+        to right,
+        #db687c,
+        #cf6c58
+        
+    );
+    right: -30px;
+    bottom: -80px;
+}
+
+.user_card {
+    width: 350px;
+    margin-top: 100px;
+    margin-bottom: auto;
+    background: #c7c5c5;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 5px;
+
+}
+.form-control {
+    background-color: #fcf6f6;
+}
+.form_container {
+    margin-top: 20px;
+}
+
+.form-title{
+    color: #060606;
+}
+.login_btn {
+    width: 100%;
+    background: #c84c46 ;
+    color: rgb(243, 228, 228) ;
+}
+.login_btn:focus {
+    box-shadow: none !important;
+    outline: 0px !important;
+}
+.login_container {
+    padding: 0 2rem;
+}
+
+.input-group-text {
+    background: #c96c6c ;
+    color: rgb(250, 239, 239) ;
+    border: 0 !important;
+    border-radius: 0.25rem 0 0 0.25rem !important;
+}
+.input_user,
+.input_pass:focus {
+    box-shadow: none !important;
+    outline: 0px !important;
+}
+.links a{
+    color: #611c1c;
+}

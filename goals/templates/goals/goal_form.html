@@ -1,0 +1,29 @@
+{% extends 'goals/studygoals.html' %}
+{% block content %}
+
+<div class="header-bar">
+    <a href="{% url 'tasks' %}">&#8592; Back</a>
+</div>
+
+
+<div class="task-body">
+    <form method="POST" action="">
+        {% csrf_token %}
+        <div class="fgroup">
+            <label for="title">Title</label>
+            <input type="text" name="title" placeholder="..." class="fcontrol">
+        </div>
+        <div class="fgroup">
+            <label for="description">Description</label>
+            <input type="text" name="description" placeholder="Describe goal" class="fcontrol">
+        </div>
+        <div class="fgroup">
+            <label for="description">Deadline</label>
+            <input type="date" name="deadline" placeholder="Select Deadline" class="fcontrol">
+        </div>
+        <input class="task-button" type="submit" value="Submit">
+    </form>
+</div>
+
+
+{% endblock content %}

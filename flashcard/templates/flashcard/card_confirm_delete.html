@@ -1,0 +1,20 @@
+{% extends 'flashcard/base.html' %}
+
+{% block content %}
+  <h1>Delete {{card.question}}</h1>
+  <p>Are you sure you want to delete this card?</p>
+  <form method="post">
+    {% csrf_token %}
+    <div class="row">
+      <div class="col">
+        <button type="submit" class="btn-primary rounded">Confirm</button>
+        </div>
+      
+      <div class="col">
+        <a href="{% url 'deck_detail' card.deck.id %}" class="btn-primary rounded">Cancel</a>
+      </div>
+    </div>
+  </form>
+{% endblock %}
+
+

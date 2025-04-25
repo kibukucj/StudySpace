@@ -1,0 +1,20 @@
+{% extends 'flashcard/base.html' %}
+
+{% block content %}
+  <h1>Add Card to {{ deck.name }}</h1>
+  <form method="post">
+    {% csrf_token %}
+    <div class="fgroup mb-3">
+      <label for="title">Question</label>
+      <input type="text" name="question" placeholder="..." class="fcontrol">
+    </div>
+
+    <div class="fgroup mb-3">
+      <label for="title">Answer</label>
+      <input type="text" name="answer" placeholder="..." class="fcontrol">
+    </div>      
+
+    <button type="submit" class="btn-primary rounded">Save</button>
+  </form>
+{% endblock %}
+

@@ -1,0 +1,32 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#chat-container {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+#chat-messages {
+    width: 900px;
+    height: 370px;
+    overflow-y: scroll;
+    border: 1px solid #eceaea;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+#message-input {
+    width: calc(100% - 80px);
+    margin-right: 10px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+#chat-message-input {
+    border: none;
+}

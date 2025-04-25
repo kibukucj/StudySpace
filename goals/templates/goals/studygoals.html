@@ -1,0 +1,146 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Goals</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Icon-->
+    <link
+    rel="icon"
+    type="image/svg"
+    sizes="32x32"
+    href="{% static '/studyapp/imgs/logo.svg' %}"
+/>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <!-- font icons -->
+    <link rel="stylesheet" href="{% static '/studyapp/vendors/themify-icons/css/themify-icons.css' %}">
+    <link rel="stylesheet" href="{% static '/studyapp/vendors/fontawesome-free-6.5.2-web/css/all.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static '/studyapp/css/studyspace.css' %}">
+    <link rel="stylesheet" href="{% static '/studyapp/css/studygoals.css' %}">
+    <link rel="stylesheet" href="{% static '/studyapp/css/home.css' %}">
+</head>
+
+<body>
+    <!-- Side Bar -->
+    <nav class="sidebar" data-spy="affix" data-offset-top="205">
+        <div class="sidebar-brand">
+            <img src="{% static '/studyapp/imgs/logo.svg' %}" alt="" class="logo-img">
+        </div> 
+
+        <div>
+                <ul class="sidebar-nav">
+                    <li class="nav-item">
+                        <a href="{% url 'home' %}">
+                            <div class="sidebar-icons">
+                                <i class="ti-video-camera"></i>
+                            </div>
+                            <p class="sidebar-text">Study Rooms</p>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="{% url 'solospace' %}">
+                            <div class="sidebar-icons">
+                                <i class="ti-blackboard"></i>
+                            </div>
+                            <p class="sidebar-text">Solo Space</p>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="{% url 'tasks' %}">
+                            <div class="sidebar-icons">
+                                <i class="ti-pencil-alt"></i>
+                            </div>
+                            <p class="sidebar-text">Study Goals</p>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="{% url 'deck_list' %}">
+                            <div class="sidebar-icons">
+                                <i class="ti-layers-alt"></i>
+                            </div>
+                            <p class="sidebar-text">Flashcards</p>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="{% url 'rooms' %}">
+                            <div class="sidebar-icons">
+                                <i class="ti-comments"></i>
+                            </div>
+                            <p class="sidebar-text">Community</p>
+                        </a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a href="{% url 'stats' %}">
+                            <div class="sidebar-icons">
+                                <i class="ti-stats-up"></i>
+                            </div>
+                            <p class="sidebar-text">Study Stats</p>
+                        </a>
+                    </li>
+
+                </ul>
+        </div>
+        
+    </nav>
+
+    <nav class="home-header fixed-top pt-2 pb-0">
+        <div class="row">     
+            <div class="col-10">
+                <!--Space-->
+                
+            </div>
+               
+            <div class="col">
+                <div class="row">
+                                        
+                    <div class="col">
+                        <a href="{% url 'logout' %}">
+                            <button class="btn btn-primary rounded">
+                                    <i class="fa-solid fa-reply" aria-hidden="true"></i> 
+                                Log Out
+                            </button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+    </nav>
+
+<main>
+    <div class="centered-div">    
+        <div class="task-container">
+            {% block content %}
+            
+            {% endblock content %}
+        </div>
+    </div>
+    <div class="notif-container">
+        {% block due %}
+        
+        {% endblock due %}
+    </div>
+    <div class="notif-container">
+        {% block missed %}
+        
+        {% endblock missed %}
+    </div>
+</main>
+    {% block scripts %}
+            
+    {% endblock scripts %}
+</body>
+
+
+</html>

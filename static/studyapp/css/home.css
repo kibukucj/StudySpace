@@ -1,0 +1,132 @@
+body {
+  background-color: white;
+}
+
+.home-header {
+  width: 100%;
+  margin-left: 100px;
+  right: 0;
+  background-color: white;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: inline-block;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+@media (min-width: 576px) {
+  .home-header {
+    max-width: 540px;
+  }
+}
+
+@media (min-width: 768px) {
+  .home-header {
+    max-width: 720px;
+  }
+}
+
+@media (min-width: 992px) {
+  .home-header {
+    max-width: 960px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .home-header {
+    max-width: 1140px;
+  }
+}
+
+
+.welcome-tag {
+  margin-top: 80px;
+  margin-left: 20px;
+  margin-right: 0;
+}
+
+.room-layout {
+  margin-left: 10px;
+  margin-right: 220px;
+}
+.bcrumb {
+  margin-left: 0;
+  display: inline-block;
+}
+.room-card {
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: inline-block;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #f5f1f1;
+  background-clip: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+.room-card-img {
+  width: 100%;
+  border-radius: calc(0 - 1px);
+}
+
+.room-card-img-top {
+  width: 100%;
+  border-top-left-radius: calc(0 - 1px);
+  border-top-right-radius: calc(0 - 1px);
+  border-radius: 10px;
+}
+
+.room-card-img-bottom {
+  width: 100%;
+}
+
+main {
+  margin-left: 100px;
+}
+
+.study-tips {
+  position: absolute;
+  right: 8px;
+  top: 120px;
+  width: 200px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-left: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+  height: 100%;
+  overflow-y: auto; /* Add this line if the content might overflow */
+}
+
+.study-tips h2 {
+  margin-top: 0;
+  font-size: 20px;
+}
+
+.study-tips ul {
+  list-style: disc;
+  padding: 0;
+}
+
+.study-tips ul li {
+  margin-bottom: 10px;
+}

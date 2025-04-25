@@ -1,0 +1,59 @@
+{% extends 'flashcard/base.html' %}
+{% load static %}
+{% block content %}
+  <h1>Reviewing {{ deck.name }}</h1>
+  
+  <div id="carouselExample" class="carousel slide">
+    <div class="carousel-inner">
+      {% for card in deck.cards.all %}
+        <div class="carousel-item {% if forloop.first %}active{% endif %}">
+          <div class="card" onclick="this.classList.toggle('flipped');">
+            <div class="card-inner">
+              <div class="card-front">
+                <p>{{ card.question }}</p>
+              </div>
+              <div class="card-back">
+                <p>{{ card.answer }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+    <a class="carousel-control-prev" href="#carouselExample" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true" ></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExample" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+
+  <div class="row py-1">
+    <div class="col-8">
+        
+    </div>
+    
+    <div class="col">
+      <a href="{% url 'deck_detail' deck.id %}" class="btn btn-primary rounded">Back to deck</a>
+    </div>
+  </div>
+  
+{% endblock %}
+
+{% block scripts %}
+  <!-- core -->
+  <script src="{% static 'studyapp/vendors/jquery/jquery-3.4.1.js' %}"></script>
+  <script src="{% static 'studyapp/vendors/bootstrap/bootstrap.bundle.js' %}"></script>
+
+  <!-- bootstrap 3 affix -->
+  <script src="{% static 'studyapp/vendors/bootstrap/bootstrap.affix.js' %}"></script>
+
+  <!-- Owl carousel -->
+  <script src="{% static 'studyapp/vendors/owl-carousel/js/owl.carousel.js' %}"></script>
+
+  <!-- Study Space js -->
+  <script src="{% static 'studyapp/js/studyspace.js' %}"></script>
+{% endblock %}
+

@@ -1,0 +1,40 @@
+{% extends 'studystats/base.html' %}
+
+{% load static %}
+
+{% block content%}
+    <h1>Study Stats</h1>
+    <canvas id="studyChart" width="400" height="200"></canvas>
+    
+{% endblock content %}
+    
+{% block scripts %}
+    <script>
+        const ctx = document.getElementById('studyChart').getContext('2d');
+        const studyData = JSON.parse('{{ data|escapejs }}');
+        
+        const labels = studyData.map(item => item[0]);
+        const hours = studyData.map(item => item[1]);
+
+        const studyChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'Hours Studied',
+                    data: hours,
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+{% endblock scripts %}

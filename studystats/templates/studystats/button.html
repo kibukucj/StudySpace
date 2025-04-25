@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Session Timer</title>
+</head>
+<body>
+    <h1>Study Session Timer</h1>
+    <button id="startStopBtn">Start</button>
+    <script>
+        let startTime;
+        document.getElementById('startStopBtn').addEventListener('click', function() {
+            const button = this;
+            if (button.textContent === 'Start') {
+                startTime = new Date();
+                button.textContent = 'Stop';
+            } else {
+                const endTime = new Date();
+                fetch('/save_study_session/', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRFToken': '{{ csrf_token }}'
+                    },
+                    body: JSON.stringify({
+                        'start_time': startTime.toISOString(),
+                        'end_time': endTime.toISOString()
+                    })
+                }).then(response => {
+                    if (response.ok) {
+                        button.textContent = 'Start';
+                        alert('Study session saved!');
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

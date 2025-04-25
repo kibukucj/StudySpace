@@ -1,0 +1,35 @@
+{% extends 'community/base.html' %}
+
+{% block title %}Rooms | {% endblock %}
+
+{% block content %}
+<div class="display-6">
+    <h1 class="">Chat Rooms</h1>
+</div>
+
+<div class="w-0 pl-5 container align-items-center">
+    {% for room in rooms %}
+    <div class="room-card" style="width: 20rem;">
+        <div class="card-body">
+          <h5 class="card-title">{{ room.name }}</h5>
+          <p class="card-text">{{ room.description }}</p>
+          <div class="row">
+            <div class="col-2">
+                
+            </div>
+            <div class="col-2">
+                
+            </div>
+            <div class="col-2">
+                <!-- Space Between Column -->
+            </div>
+            <div class="col">
+                <a href="{% url 'room' room.slug %}" class="btn btn-primary rounded">Join Chat</a>
+            </div>
+          </div>
+        </div>
+    </div>
+    {% endfor %}
+
+</div>
+{% endblock %}

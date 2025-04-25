@@ -1,0 +1,54 @@
+/* flashcards/static/flashcards/flashcards.css */
+
+.flashcards {
+    padding: 20px;
+    max-width: 600px;
+    margin: auto;
+}
+
+.flashcards h1 {
+    text-align: center;
+}
+
+.flashcards a {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.flashcards ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.flashcards li {
+    background: #f9f9f9;
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.flashcards li form {
+    display: inline;
+}
+
+.flashcards li button {
+    background: #e74c3c;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.flashcards form {
+    display: flex;
+    flex-direction: column;
+}
+
+.flashcards form input, .flashcards form button {
+    margin: 5px 0;
+    padding: 10px;
+}

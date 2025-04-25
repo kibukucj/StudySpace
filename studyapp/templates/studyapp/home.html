@@ -1,0 +1,330 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Icon-->
+    <link
+    rel="icon"
+    type="image/svg"
+    sizes="32x32"
+    href="{% static '/studyapp/imgs/logo.svg' %}"
+/>
+    <title>Your Dashboard</title>
+    <!-- font icons -->
+    <link rel="stylesheet" href="{% static '/studyapp/vendors/themify-icons/css/themify-icons.css' %}">
+    <link rel="stylesheet" href="{% static '/studyapp/vendors/fontawesome-free-6.5.2-web/css/all.css' %}">
+    
+    <!-- owl carousel -->
+    <link rel="stylesheet" href="{% static '/studyapp/vendors/owl-carousel/css/owl.carousel.css'%}">
+    <link rel="stylesheet" href="{% static '/studyapp/vendors/owl-carousel/css/owl.theme.default.css'%}">
+
+    <!-- Bootstrap + Study Space main styles -->
+	<link rel="stylesheet" href="{% static '/studyapp/css/studyspace.css'%}">
+    <link rel="stylesheet" href="{% static '/studyapp/css/home.css'%}">
+    
+</head>
+<body>
+    <!-- Side Bar -->
+    <nav class="sidebar" data-spy="affix" data-offset-top="205">
+        <div class="sidebar-brand">
+            <img src="{% static '/studyapp/imgs/logo.svg' %}" alt="" class="logo-img">
+        </div> 
+
+        <div>
+                <ul class="sidebar-nav">
+                    <li class="nav-item">
+                        <a href="{% url 'home' %}">
+                            <div class="sidebar-icons">
+                                <i class="ti-video-camera"></i>
+                            </div>
+                            <p class="sidebar-text">Study Rooms</p>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="{% url 'solospace' %}">
+                            <div class="sidebar-icons">
+                                <i class="ti-blackboard"></i>
+                            </div>
+                            <p class="sidebar-text">Solo Space</p>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="{% url 'tasks' %}">
+                            <div class="sidebar-icons">
+                                <i class="ti-pencil-alt"></i>
+                            </div>
+                            <p class="sidebar-text">Study Goals</p>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="{% url 'deck_list' %}">
+                            <div class="sidebar-icons">
+                                <i class="ti-layers-alt"></i>
+                            </div>
+                            <p class="sidebar-text">Flashcards</p>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="{% url 'rooms' %}">
+                            <div class="sidebar-icons">
+                                <i class="ti-comments"></i>
+                            </div>
+                            <p class="sidebar-text">Community</p>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="{% url 'stats' %}">
+                            <div class="sidebar-icons">
+                                <i class="ti-stats-up"></i>
+                            </div>
+                            <p class="sidebar-text">Study Stats</p>
+                        </a>
+                    </li>
+                    
+                </ul>
+        </div>
+        
+    </nav>
+<!-- Header -->
+<nav class="home-header fixed-top pt-0 pb-0" style="align-items: center; justify-content: center;">
+    <div class="row">     
+        <div class="col-8">
+            <!--Space-->
+            
+        </div>
+           
+        <div class="col">
+            <div style=" right: 0;">
+                <div class="dropdown-toggle pt-2" onclick="toggleDropdown()"
+                    style="  display: flex; justify-content: center; align-items: center; background-color: none; border: none;">
+                        <img style="height: 38px; width: 38px; border-radius: 50%; padding: 3px;" src="{{ user.profile.avatar }}"/>
+                        <p class="text-black justify-center pt-3">{{ user.profile.name }}</p>
+                    
+                    <ul class="dropdown-menu" id="dropdownMenu">
+                        <li><a class="dropdown-item" href="{% url 'profile' %}">My Profile</a></li>
+                        <li><a class="dropdown-item" href="{% url 'profile-edit' %}">Edit Profile</a></li>
+                        <li><a class="dropdown-item" href="{% url 'profile-settings' %}">Settings</a></li>
+                    </ul>
+                </div>
+            </div>  
+        </div>
+        <div class="col pt-3">
+            <a href="{% url 'logout' %}">
+                <button class="btn btn-primary rounded">
+                        <i class="fa-solid fa-reply" aria-hidden="true"></i> 
+                    Log Out
+                </button>
+            </a>
+        </div>
+    </div>
+</nav>
+<!-- Main Body -->
+<main>
+    <div class="row">
+        <!--Space-->
+    </div>
+    <!--Welcome Tag-->
+<div class="welcome-tag">
+    <div class="row">
+        <!--Space-->
+    </div>
+    <p class="display-6"></p>
+    <p class="display-6">Welcome {{ user.profile.name }}! Enjoy your Study Session.</p>
+</div>
+<div class="room-layout">  
+    
+    <!--Links to Different Rooms-->
+    <div class="container">        
+        <div class="room-card" style="width: 18rem;">
+            <img src="{% static '/studyapp/imgs/bg1.jpg' %}" class="room-card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Math Masterminds</h5>
+              <p class="card-text">
+                roomID=6844</p>
+                <div class="row">
+                <div class="col-2">
+                    <button class="btn btn-outline-primary">
+                        <i class="fa-regular fa-heart"></i>
+                    </button>
+                </div>
+                <div class="col-2">
+                    <button class="btn btn-outline-primary">
+                        <i class="fa-solid fa-link"></i>
+                    </button>
+                </div>
+                <div class="col-2">
+                    <!-- Space Between Column -->
+                </div>
+                <div class="col">
+                    <a href="{% url 'join' %}" class="btn btn-primary rounded">Join Room</a>
+                </div>
+              </div>
+            </div>
+        </div>
+
+        <div class="room-card" style="width: 18rem;">
+            <img src="{% static '/studyapp/imgs/bg2.jpg' %}" class="room-card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Literary Legends</h5>
+              <p class="card-text">
+                roomID=9455</p>
+                <div class="row">
+                <div class="col-2">
+                    <button class="btn btn-outline-primary">
+                        <i class="fa-regular fa-heart"></i>
+                    </button>
+                </div>
+                <div class="col-2">
+                    <button class="btn btn-outline-primary">
+                        <i class="fa-solid fa-link"></i>
+                    </button>
+                </div>
+                <div class="col-2">
+                    <!-- Space Between Column -->
+                </div>
+                <div class="col">
+                    <a href="{% url 'join' %}" class="btn btn-primary rounded">Join Room</a>
+                </div>
+              </div>
+            </div>
+        </div>
+
+        <div class="room-card" style="width: 18rem;">
+            <img src="{% static '/studyapp/imgs/bg3.jpg' %}" class="room-card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Science Explorers</h5>
+              <p class="card-text">
+                roomID=3118</p>
+                <div class="row">
+                <div class="col-2">
+                    <button class="btn btn-outline-primary">
+                        <i class="fa-regular fa-heart"></i>
+                    </button>
+                </div>
+                <div class="col-2">
+                    <button class="btn btn-outline-primary">
+                        <i class="fa-solid fa-link"></i>
+                    </button>
+                </div>
+                <div class="col-2">
+                    <!-- Space Between Column -->
+                </div>
+                <div class="col">
+                    <a href="{% url 'join' %}" class="btn btn-primary rounded">Join Room</a>
+                </div>
+              </div>
+            </div>
+        </div>
+
+        <div class="room-card" style="width: 18rem;">
+            <img src="{% static '/studyapp/imgs/bg4.jpg' %}" class="room-card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Exam Prep Squad</h5>
+              <p class="card-text">
+                roomID=5027</p>
+                <div class="row">
+                <div class="col-2">
+                    <button class="btn btn-outline-primary">
+                        <i class="fa-regular fa-heart"></i>
+                    </button>
+                </div>
+                <div class="col-2">
+                    <button class="btn btn-outline-primary">
+                        <i class="fa-solid fa-link"></i>
+                    </button>
+                </div>
+                <div class="col-2">
+                    <!-- Space Between Column -->
+                </div>
+                <div class="col">
+                    <a href="{% url 'join' %}" class="btn btn-primary rounded">Join Room</a>
+                </div>
+              </div>
+            </div>
+        </div>
+
+        <div class="room-card" style="width: 18rem;">
+            <img src="{% static '/studyapp/imgs/bg5.jpg' %}" class="room-card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Language Learners</h5>
+              <p class="card-text">
+                roomID=1055</p>
+                <div class="row">
+                <div class="col-2">
+                    <button class="btn btn-outline-primary">
+                        <i class="fa-regular fa-heart"></i>
+                    </button>
+                </div>
+                <div class="col-2">
+                    <button class="btn btn-outline-primary">
+                        <i class="fa-solid fa-link"></i>
+                    </button>
+                </div>
+                <div class="col-2">
+                    <!-- Space Between Column -->
+                </div>
+                <div class="col">
+                    <a href="{% url 'join' %}" class="btn btn-primary rounded">Join Room</a>
+                </div>
+              </div>
+            </div>
+        </div>
+
+        <div class="room-card" style="width: 18rem;">
+            <img src="{% static '/studyapp/imgs/bg6.avif' %}" class="room-card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">History Buffs</h5>
+              <p class="card-text">roomID=9308</p>
+                
+                <div class="row">
+                
+                <div class="col-2">
+                    <button class="btn btn-outline-primary">
+                        <i class="fa-regular fa-heart"></i>
+                    </button>
+                </div>
+                <div class="col-2">
+                    <button class="btn btn-outline-primary">
+                        <i class="fa-solid fa-link"></i>
+                    </button>
+                </div>
+                <div class="col-2">
+                    <!-- Space Between Column -->
+                </div>
+                <div class="col">
+                    <a href="{% url 'meeting' %}" class="btn btn-primary rounded">Join Room</a>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>  
+</div>
+
+<div class="study-tips">
+    <h2>Quote</h2>
+    <p>"The future belongs to those who believe in the beauty of their dreams."
+        <br>
+        — Eleanor Roosevelt</p>
+    <h2>Study Tips</h2>
+    <ul>
+        <li>Take regular breaks to improve focus.</li>
+        <li>Organize your study space.</li>
+        <li>Use mnemonic devices to remember information.</li>
+        <li>Practice active recall and spaced repetition.</li>
+        <li>Stay hydrated and eat healthy snacks.</li>
+    </ul>
+</div>
+</div>
+</main>
+        <!-- Dropdown js -->
+        <script src="{% static '/studyapp/js/dropdown.js' %}"></script>
+</body>
+</html>

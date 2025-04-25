@@ -1,0 +1,31 @@
+{% extends 'flashcard/base.html' %}
+
+{% block content %}
+<div class="row">
+  <div class="col-10">
+    <h1 class="pl-3">My Decks</h1>
+    </div>
+  
+  <div class="col">
+    <a href="{% url 'create_deck' %}" class="btn btn-primary rounded"><i class="fa-solid fa-plus"></i>New deck</a>
+  </div>
+</div>
+  
+  <ul>
+    {% for deck in decks %}
+      <div class="room-card" style="width: 22rem;">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-9">
+                <p class="card-title">{{ deck.name }}</p>
+            </div>
+            
+            <div class="col">
+                <a href="{% url 'deck_detail' deck.id %}" class="btn btn-primary rounded"><i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+    </div>
+    {% endfor %}
+  </ul>
+{% endblock %}
